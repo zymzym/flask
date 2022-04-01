@@ -7,16 +7,14 @@ from flask import make_response, request
 from flask.views import MethodView
 
 from lib.logger import logger
-from database_clients.redis_cli import redis_cli
-from database_clients.mongo_cli import account_mgo, admin_mgo
-# from database_clients.mysql_cli import mysql_engine
+#from database_clients.redis_cli import redis_cli
+#from database_clients.mongo_cli import account_mgo, admin_mgo
+from database_clients.mysql_cli import mysql_cli
 from config import DEBUG, LOGIN_URL
 
 
 class RunException(BaseException):
-    """
-    异常类
-    """
+    
     def __init__(self, status, error_msg):
         self.status = status
         self.error_msg = error_msg
@@ -26,10 +24,11 @@ class BaseHandler(MethodView):
     def __init__(self, **kwargs):
         super(BaseHandler, self).__init__()
         self.logger = logger
-        self.redis_cli = redis_cli
+        #self.redis_cli = redis_cli
+        self.mysql_cli = mysql_cli
         self.account = account_mgo
         self.admin = admin_mgo
-        # self.mysql = mysql_engine
+        self.mysql = mysql_engine
 
         self.power = []
 

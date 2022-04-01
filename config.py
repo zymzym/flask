@@ -1,9 +1,9 @@
 # coding: utf-8
 
 import os
-
+import pymysql
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
-# = = = = = = = = = = = = = = = = È°πÁõÆË∑ØÂæÑÂíåÊñá‰ª∂ÂàùÂßãÂåñ  = = = = = = = = = = = = = #
+# = = = = = = = = = = = = = = = = œÓƒø¬∑æ∂∫ÕŒƒº˛≥ı ºªØ  = = = = = = = = = = = = = #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +15,7 @@ LOGIN_URL = "http://data.gtapp.xyz/login"
 HOST = "0.0.0.0"
 PORT = 5000
 
-# Êó•ÂøóÈÖçÁΩÆ
+# »’÷æ≈‰÷√
 LOG_PATH = os.path.join(ROOT_DIR, 'logs')
 if not os.path.isdir(LOG_PATH):
     os.mkdir(LOG_PATH)
@@ -26,34 +26,50 @@ WARNING_LOG = os.path.join(LOG_PATH, "warning.log")
 ERROR_LOG = os.path.join(LOG_PATH, "error.log")
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
-# = = = = = = = = = = = = = = = = = Êï∞ÊçÆÂ∫ìÈÖçÁΩÆ = = = = = = = = = = = = = = = = #
+# = = = = = = = = = = = = = = = = =  ˝æ›ø‚≈‰÷√ = = = = = = = = = = = = = = = = #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
-MONGO_CONFIG = {
-    'account': {
-        "host_port": [('', 37017)],
-        "database": "",
-        "user_name": "",
-        "password": ""
-    },
-    'admin': {
-        "host_port": [('', 37017)],
-        "database": "",
-        "user_name": "",
-        "password": ""
-    }
-}
+# MONGO_CONFIG = {
+#     'account': {
+#         "host_port": [('', 37017)],
+#         "database": "",
+#         "user_name": "",
+#         "password": ""
+#     },
+#     'admin': {
+#         "host_port": [('', 37017)],
+#         "database": "",
+#         "user_name": "",
+#         "password": ""
+#     }
+# }
 
-REDIS_CONFIG = {
+# REDIS_CONFIG = {
+#     'auth': {
+#         "host": "",
+#         "port": 6379,
+#         "password": '',
+#         "database": 0
+#     }
+# }
+
+
+
+
+MYSQL_CONFIG = {
     'auth': {
-        "host": "",
-        "port": 6379,
-        "password": '',
-        "database": 0
+        "host": "127.0.0.1",
+        "user":"root",
+        "password":"root",
+        "charset" :"utf8",
+        "use_unicode":"False",
+        "database":"mysql",
     }
 }
 
-try:
-    from local_config import *
-except Exception as e:
-    pass
+
+# try:
+#     from local_config import *
+# except Exception as e:
+#     pass
+
